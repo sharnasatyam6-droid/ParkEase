@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | ParkEase</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+
+<body>
+
+    <div class="login-page">
+
+        <div class="login-box">
+
+            <div class="login-logo">
+                <span class="logo-icon">P</span>
+                <span>ParkEase</span>
+            </div>
+
+            <div class="login-heading">
+                <h1>Admin Login</h1>
+
+                <p>
+                    Sign in to manage your parking system.
+                </p>
+            </div>
+
+            <form onsubmit="adminLogin(event)">
+
+                <div class="input-group">
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="adminEmail"
+                        placeholder="admin@parkease.com"
+                        required
+                    >
+                </div>
+
+                <div class="input-group">
+                    <label>Password</label>
+
+                    <input
+                        type="password"
+                        id="adminPassword"
+                        placeholder="Enter your password"
+                        required
+                    >
+                </div>
+
+                <button type="submit" class="login-btn">
+                    Login to Dashboard
+                </button>
+
+            </form>
+
+            <a href="/" class="back-home">
+                ← Back to Home
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+        function adminLogin(event) {
+
+            event.preventDefault();
+
+            const email = document.getElementById("adminEmail").value;
+            const password = document.getElementById("adminPassword").value;
+
+            /*
+             * TEMPORARY HACKATHON LOGIN
+             *
+             * We will replace this with a real database
+             * authentication system later.
+             */
+
+            if (email === "admin@parkease.com" && password === "admin123") {
+
+                window.location.href = "/admin-dashboard";
+
+            } else {
+
+                alert("Invalid admin credentials.");
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>
